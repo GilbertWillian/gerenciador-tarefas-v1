@@ -1,7 +1,16 @@
-import React from 'react';
+import React from "react";
+import { A } from 'hookrouter';
 
 function ListarTarefas() {
-  return <h1>Listagem de Tarefas</h1>
+  return(
+
+    <A href="/cadastrar"
+    className="btn btn-success btn-sm">
+      Nova tarefa
+    </A>
+  );
+  
+
 }
 
 export default ListarTarefas;
