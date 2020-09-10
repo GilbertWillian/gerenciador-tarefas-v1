@@ -1,10 +1,28 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { A } from "hookrouter";
 import { Table } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // Habilita o uso de icones
 import { faPlus } from "@fortawesome/free-solid-svg-icons"; // Icone que será usado
+import ItemListaTarefas from "./Itens-lista-tarefas";
 
 function ListarTarefas() {
+  
+  const [tarefas, setTarefas] = useState([]);
+  const [carregarTarefas, setCarregarTarefas] = useState(true);
+
+  useEffect(() => {
+    function obterTarefa() {
+      const tarefasDB = localStorage['tarefas'];
+      let listarTarefas = tarefasDB ? JSON.parse(tarefasDB) : [];
+      setTarefas(listarTarefas);
+    }
+
+    if (carregarTarefas) {
+      obterTarefa();
+      setCarregarTarefas(false);
+    }
+  }, [carregarTarefas])
+  
   return (
     <div className="text-center">
       <h3>Tarefas a fazer</h3>
@@ -27,7 +45,7 @@ function ListarTarefas() {
           </tr>
         </thead>
         <tbody>
-          
+          <ItemListaTarefas tarefas={tarefas} reacrregarTarefas={setCarregarTarefas} />
         </tbody>
       </Table>
     </div>
