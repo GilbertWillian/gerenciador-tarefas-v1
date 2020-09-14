@@ -3,7 +3,7 @@ import { A } from "hookrouter";
 import { Table } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // Habilita o uso de icones
 import { faPlus } from "@fortawesome/free-solid-svg-icons"; // Icone que será usado
-import ItemListaTarefas from "./Itens-lista-tarefas";
+import ItensListaTarefas from "./Itens-lista-tarefas";
 
 function ListarTarefas() {
   
@@ -45,7 +45,7 @@ function ListarTarefas() {
           </tr>
         </thead>
         <tbody>
-          <ItemListaTarefas tarefas={tarefas} reacrregarTarefas={setCarregarTarefas} />
+          <ItensListaTarefas tarefas={tarefas} reacrregarTarefas={setCarregarTarefas} />
         </tbody>
       </Table>
     </div>

@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // Habilita o 
 import { faEdit } from "@fortawesome/free-solid-svg-icons"; // Icone que será usado
 import { A } from "hookrouter";
 
-function ItemListaTarefas(props) {
+function ItensListaTarefas(props) {
   function marcarConcluida(tarefa) {
     return tarefa.concluida ? "line-through" : "none";
   }
@@ -14,7 +14,7 @@ function ItemListaTarefas(props) {
       <td
         width="75%"
         data-testid="nome-tarefa"
-        style={{ textDexcoration: marcarConcluida(tarefa) }}
+        style={{ textDecoration: marcarConcluida(tarefa) }}
       >
         {tarefa.nome}
       </td>
@@ -31,9 +31,9 @@ function ItemListaTarefas(props) {
 }
 
 // Usamos PropTypes para definir o tipo da entrada de dados do componente via props
-IntersectionObserver.PropTypes = {
+ItensListaTarefas.PropTypes = {
   tarefa: PropTypes.array.isRequired,
   recarregarTarefas: PropTypes.func.isRequired,
 };
 
-export default ItemListaTarefas;
+export default ItensListaTarefas;
