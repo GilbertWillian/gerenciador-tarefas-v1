@@ -7,8 +7,6 @@ import { faClipboardCheck } from '@fortawesome/free-solid-svg-icons';
 
 function ConcluirTarefa(props) {
 
-  console.log(props);
-
   const [exibirModal, setExibirModal] = useState(false);
 
   function handleAbrirModal(event) {

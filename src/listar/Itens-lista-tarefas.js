@@ -20,11 +20,12 @@ function ItensListaTarefas(props) {
       >
         {tarefa.nome}
       </td>
+
       <td className="text-right">
         
         <ConcluirTarefa
-          tarefa={tarefa}
-          recarregarTarefas={props.recarregarTarefas}
+          tarefa={ tarefa }
+          recarregarTarefas={ props.recarregarTarefas }
           className={ tarefa.concluida ? 'hidden' : null }
         />
         &nbsp;
@@ -41,8 +42,8 @@ function ItensListaTarefas(props) {
 }
 
 // Usamos PropTypes para definir o tipo da entrada de dados do componente via props
-ItensListaTarefas.PropTypes = {
-  tarefa: PropTypes.array.isRequired,
+ItensListaTarefas.propTypes = {
+  tarefas: PropTypes.array.isRequired,
   recarregarTarefas: PropTypes.func.isRequired,
 };
 
