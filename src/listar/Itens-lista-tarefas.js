@@ -3,8 +3,10 @@ import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // Habilita o uso de icones
 import { faEdit } from "@fortawesome/free-solid-svg-icons"; // Icone que será usado
 import { A } from "hookrouter";
+import ConcluirTarefa from "./concluir-tarefa";
 
 function ItensListaTarefas(props) {
+  
   function marcarConcluida(tarefa) {
     return tarefa.concluida ? "line-through" : "none";
   }
@@ -19,6 +21,14 @@ function ItensListaTarefas(props) {
         {tarefa.nome}
       </td>
       <td className="text-right">
+        
+        <ConcluirTarefa
+          tarefa={tarefa}
+          recarregarTarefas={props.recarregarTarefas}
+          className={ tarefa.concluida ? 'hidden' : null }
+        />
+        &nbsp;
+        
         <A
           href={"/atualizar/" + tarefa.id}
           className={tarefa.concluida ? "hidden" : "btn btn-warning btn-sm"}

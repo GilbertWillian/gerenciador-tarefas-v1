@@ -6,13 +6,12 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons"; // Icone que será u
 import ItensListaTarefas from "./Itens-lista-tarefas";
 
 function ListarTarefas() {
-  
   const [tarefas, setTarefas] = useState([]);
   const [carregarTarefas, setCarregarTarefas] = useState(true);
 
   useEffect(() => {
     function obterTarefa() {
-      const tarefasDB = localStorage['tarefas'];
+      const tarefasDB = localStorage["tarefas"];
       let listarTarefas = tarefasDB ? JSON.parse(tarefasDB) : [];
       setTarefas(listarTarefas);
     }
@@ -21,8 +20,8 @@ function ListarTarefas() {
       obterTarefa();
       setCarregarTarefas(false);
     }
-  }, [carregarTarefas])
-  
+  }, [carregarTarefas]);
+
   return (
     <div className="text-center">
       <h3>Tarefas a fazer</h3>
@@ -45,7 +44,10 @@ function ListarTarefas() {
           </tr>
         </thead>
         <tbody>
-          <ItensListaTarefas tarefas={tarefas} reacrregarTarefas={setCarregarTarefas} />
+          <ItensListaTarefas
+            tarefas={tarefas}
+            recarregarTarefas={setCarregarTarefas}
+          />
         </tbody>
       </Table>
     </div>
