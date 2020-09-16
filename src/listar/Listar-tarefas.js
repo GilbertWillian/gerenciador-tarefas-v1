@@ -36,7 +36,7 @@ function ListarTarefas() {
                 className="btn btn-success btn-sm"
                 data-testid="btn-nova-tarefa"
               >
-                <FontAwesomeIcon icon={faPlus} />
+                <FontAwesomeIcon icon= { faPlus } />
                 &nbsp; {/* Usado para dar espaços */}
                 Nova Tarefa
               </A>
@@ -45,8 +45,8 @@ function ListarTarefas() {
         </thead>
         <tbody>
           <ItensListaTarefas
-            tarefas={tarefas}
-            recarregarTarefas={setCarregarTarefas}
+            tarefas={ tarefas }
+            recarregarTarefas={ setCarregarTarefas }
           />
         </tbody>
       </Table>
