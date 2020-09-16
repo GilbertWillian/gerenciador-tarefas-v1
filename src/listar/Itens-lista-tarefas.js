@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // Habilita o 
 import { faEdit } from "@fortawesome/free-solid-svg-icons"; // Icone que será usado
 import { A } from "hookrouter";
 import ConcluirTarefa from "./Concluir-tarefa";
+import RemoverTarefa from "./Remover-tarefa";
 
 function ItensListaTarefas(props) {
   
@@ -36,6 +37,12 @@ function ItensListaTarefas(props) {
         > 
           <FontAwesomeIcon icon={ faEdit } />
         </A>
+        &nbsp;
+
+        <RemoverTarefa
+          tarefa={ tarefa }
+          recarregarTarefas={ props.recarregarTarefas } />
+
       </td>
     </tr>
   ));
