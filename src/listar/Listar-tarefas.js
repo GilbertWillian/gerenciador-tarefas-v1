@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { A } from "hookrouter";
-import { Table } from "react-bootstrap";
+import { Table, Form } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // Habilita o uso de icones
 import { faPlus } from "@fortawesome/free-solid-svg-icons"; // Icone que será usado
 import ItensListaTarefas from "./Itens-lista-tarefas";
@@ -16,11 +16,18 @@ function ListarTarefas() {
   const [paginaAtual, setPaginaAtual] = useState(1);
   const [ordenarAsc, setOrdenarAsc] = useState(false);
   const [ordenarDesc, setOrdenarDesc] = useState(false);
+  const [filtroTarefa, setFiltroTarefa] = useState('')
 
   useEffect(() => {
     function obterTarefa() {
       const tarefasDB = localStorage["tarefas"];
       let listaTarefas = tarefasDB ? JSON.parse(tarefasDB) : [];
+      
+      // Filtrar
+      listaTarefas = listaTarefas.filter(
+        t => t.nome.toLowerCase().indexOf(filtroTarefa.toLocaleLowerCase()) === 0
+      );
+      
       // Ordenar
       if (ordenarAsc) {
         listaTarefas.sort((t1, t2) =>
@@ -46,7 +53,7 @@ function ListarTarefas() {
       obterTarefa();
       setCarregarTarefas(false);
     }
-  }, [carregarTarefas, paginaAtual, ordenarAsc, ordenarDesc]);
+  }, [carregarTarefas, paginaAtual, ordenarAsc, ordenarDesc, filtroTarefa]);
 
   const handleMudarPagina = (pagina) => {
     setPaginaAtual(pagina);
@@ -68,6 +75,12 @@ function ListarTarefas() {
     }
     setCarregarTarefas(true);
   };
+
+  const handleFiltrar = (event) => {
+    event.preventDefault();
+    setFiltroTarefa(event.target.value);
+    setCarregarTarefas(true);
+  }
 
   return (
     <div className="text-center">
@@ -96,6 +109,18 @@ function ListarTarefas() {
                 Nova Tarefa
               </A>
             </th>
+          </tr>
+          <tr>
+            <th>
+              <Form.Control
+                type="text"
+                value={filtroTarefa}
+                onChange={handleFiltrar}
+                data-testid="txt-tarefa" 
+                className="filtro-tarefa"/>
+
+            </th>
+            <th>&nbsp;</th>
           </tr>
         </thead>
         <tbody>
