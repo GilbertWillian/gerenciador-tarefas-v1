@@ -19,7 +19,7 @@ describe('Teste do componente de conclusão de tarefas', () => {
     ReactDOM.unmountComponentAtNode(div);
   });
 
-  it('deve exibir a modal', () => {
+  it('deve exibir a modal de confirmação', () => {
     const { getByTestId } = render(
       <ConcluirTarefa
       tarefa={tarefa}

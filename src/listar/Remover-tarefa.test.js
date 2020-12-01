@@ -19,7 +19,7 @@ describe('teste do componente de remoção de tarefas', () => {
     ReactDOM.unmountComponentAtNode(div);
   });
 
-  it('deve exibit a modal', () => {
+  it('deve exibit a modal de confirmação', () => {
     const { getByTestId } = render(
       <RemoverTarefa
         tarefa={tarefa}

@@ -29,7 +29,7 @@ describe("Teste do componente de listagem de tarefas", () => {
     ReactDOM.unmountComponentAtNode(div);
   });
 
-  it("deve exibir uma tabela contendo 3 tabelas", () => {
+  it("deve exibir uma tabela contendo 3 tarefas", () => {
     const { getByTestId } = render(<ListarTarefas />);
     const tabela = getByTestId("tabela");
     expect(tabela).toHaveTextContent(nomePrimeiraTarefa);
