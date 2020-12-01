@@ -83,8 +83,8 @@ function ListarTarefas() {
   }
 
   return (
-    <div className="text-center">
-      <h3>Tarefas a fazer</h3>
+    <div className="container text-center">
+      <h1>Tarefas a fazer</h1>
 
       <Table striped bordered hover responsive data-testid="tabela">
         <thead>
@@ -117,7 +117,8 @@ function ListarTarefas() {
                 value={filtroTarefa}
                 onChange={handleFiltrar}
                 data-testid="txt-tarefa" 
-                className="filtro-tarefa"/>
+                className="filtro-tarefa"
+                placeholder="Pesquise uma tarefa..."/>
 
             </th>
             <th>&nbsp;</th>

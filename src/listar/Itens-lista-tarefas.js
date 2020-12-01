@@ -22,7 +22,7 @@ function ItensListaTarefas(props) {
         { tarefa.nome }
       </td>
 
-      <td className="text-right">
+      <td className="text-center">
         
         <ConcluirTarefa
           tarefa={ tarefa }
